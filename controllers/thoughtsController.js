@@ -6,7 +6,7 @@ module.exports = {
     getThoughts: async function getThoughts(req, res) {
         try {
             const thoughts = await Thought.find()
-            !thoughts ? res.status(404).json('can not find thoughts') : res.status(200).json(thoughts)
+            !thoughts ? res.status(404).json('Error: Cannot find Thoughts') : res.status(200).json(thoughts)
         } catch (err) {
             res.status(500).json(err)
         }
@@ -17,7 +17,7 @@ module.exports = {
     getSingleThought: async function getSingleThought(req, res) {
         try {
             const thought = await Thought.findById(req.params.id)
-            !thought ? res.status(404).json('thought does not exist') : res.status(200).json(thought)
+            !thought ? res.status(404).json('Error: Thought does not exist') : res.status(200).json(thought)
         } catch (err) {
             res.status(500).json(err)
         }
@@ -46,7 +46,7 @@ module.exports = {
                 { $set: req.body },
                 { runValidators: true, new: true }
             )
-            !updateThought ? res.status(404).json('Cannot find thought with this id') : res.json(updateThought)
+            !updateThought ? res.status(404).json('Error: Thought not found with this ID') : res.json(updateThought)
         } catch (err) {
             res.status(500).json(err)
         }
@@ -55,7 +55,7 @@ module.exports = {
     deleteThought: async function deleteThought(req, res) {
         try {
             const deleteThought = await Thought.findByIdAndDelete(req.params.id);
-            !deleteThought ? res.status(404).json('thought not found') : res.status(200).json('thought has been successfully deleted')
+            !deleteThought ? res.status(404).json('Error: Thought not found') : res.status(200).json('thought has been successfully deleted')
 
         } catch (err) {
             res.status(500).json(err)
@@ -69,7 +69,7 @@ module.exports = {
                 { $addToSet: { reactions: req.body } },
                 { new: true }
             )
-            !newReaction ? res.status(404).json('Cannot find thought') : res.status(200).json(newReaction)
+            !newReaction ? res.status(404).json('Error: Cannot find thought') : res.status(200).json(newReaction)
         } catch (err) {
             res.status(500).json(err)
         }
@@ -83,7 +83,7 @@ module.exports = {
                 { runValidators: true, new: true }
             )
             !deleteReaction
-                ? res.status(404).json('reaction not found')
+                ? res.status(404).json('Error: Reaction not found')
                 : res.status(200).json(deleteReaction)
         } catch (err) {
             res.status(500).json(err)
