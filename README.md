@@ -24,7 +24,7 @@ This week's challenge is to build an API for a social network web application wh
 ​
 ### Links
 ​
-- GitHub URL: [https://github.com/hong-f/e-commerce-backend]
-- Demo Video: [https://github.com/hong-f/Social-Network-API]
+- GitHub URL: [https://github.com/hong-f/Social-Network-API]
+- Demo Video: [https://drive.google.com/file/d/16EFgR143I7DJeftDjaB-zNZSMc0QHSu_/view]
 
 ​
