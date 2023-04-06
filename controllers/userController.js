@@ -16,7 +16,7 @@ module.exports = {
         }
     },
 
-    //gets a single user and populates the thoughts and friends for that user
+
     getSingleUser: async function getSingleUser(req, res) {
         try {
             const user = await User.findById(req.params.id)
@@ -30,7 +30,7 @@ module.exports = {
         }
     },
 
-    //creates a new user 
+    //creat new user
     createUser: async function createUser(req, res) {
         try {
             const newUser = await User.create(req.body)
@@ -69,7 +69,7 @@ module.exports = {
         }
     },
 
-    //add a new friend to a users friends list
+    
     addFriend: async function addFriend(req, res) {
         try {
             const user = await User.findByIdAndUpdate(
